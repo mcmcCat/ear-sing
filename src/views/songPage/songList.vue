@@ -1,7 +1,7 @@
 <template>
   <div class="top_bar">
     <van-nav-bar
-      title="标题"
+      title="歌曲列表"
       left-text="返回"
       right-text="分享"
       left-arrow
@@ -10,47 +10,29 @@
     />
   </div>
   <div class="container_box">
-    <div class="banner_1">
-      <img src="@/assets/banner1.jpg" alt="" />
-    </div>
-    <div class="banner_2">
-      <div class="left_box">
-        <van-icon name="fire-o" color="#ee0a24" size="30" />
-        <div class="text">
-          <div class="text_1">视唱练耳课上新啦</div>
-          <div class="text_2">一边看课程一边练习 快速提升</div>
-        </div>
-      </div>
-      <div class="right_box">
-        <van-button
-          round
-          size="small"
-          style="background-color: #8fabef; color: #fff"
-          @click="song"
-          >学习一下</van-button
-        >
-      </div>
-    </div>
-    <div class="banner_3">
-      <div class="learn_item" v-for="item in learnList">
-        <div class="icon_box" :style="{ 'background-color': item.color }">
-          <van-icon :name="item.icon" size="30" />
-        </div>
-        <div>
-          {{ item.label }}
-        </div>
-      </div>
-    </div>
-    <div class="banner_4">
-      <div class="round_1">
-        <h1>随机练习</h1>
-        <div>各种音律知识</div>
-      </div>
-      <div class="round_2">
-        <h1>专项练习</h1>
-        <div>针对性跳战</div>
-      </div>
-    </div>
+    <van-cell-group title="类别1">
+      <van-cell title="歌曲名" is-link to="detail" />
+      <van-cell title="歌曲名" is-link to="detail" />
+      <van-cell title="歌曲名" is-link to="detail" />
+      <van-cell title="歌曲名" is-link to="detail" />
+      <van-cell title="歌曲名" is-link to="detail" />
+      <van-cell title="歌曲名" is-link to="detail" />
+    </van-cell-group>
+    <van-cell-group title="类别2">
+      <van-cell title="歌曲名" is-link to="detail" />
+      <van-cell title="歌曲名" is-link to="detail" />
+      <van-cell title="歌曲名" is-link to="detail" />
+      <van-cell title="歌曲名" is-link to="detail" />
+      <van-cell title="歌曲名" is-link to="detail" />
+      <van-cell title="歌曲名" is-link to="detail" />
+      <van-cell title="歌曲名" is-link to="detail" />
+      <van-cell title="歌曲名" is-link to="detail" />
+    </van-cell-group>
+    <van-cell-group title="类别3">
+      <van-cell title="歌曲名" is-link to="detail" />
+      <van-cell title="歌曲名" is-link to="detail" />
+      <van-cell title="歌曲名" is-link to="detail" />
+    </van-cell-group>
   </div>
   <div class="footer">
     <van-tabbar v-model="active">
@@ -97,12 +79,10 @@ const icon = {
 
 const onClickLeft = () => {
   console.log("返回");
+  router.push("/");
 };
 const onClickRight = () => {
   console.log("分享");
-};
-const song = () => {
-  router.push("/song");
 };
 </script>
 

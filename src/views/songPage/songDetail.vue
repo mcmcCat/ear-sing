@@ -1,7 +1,7 @@
 <template>
   <div class="top_bar">
     <van-nav-bar
-      title="标题"
+      title="歌曲详情"
       left-text="返回"
       right-text="分享"
       left-arrow
@@ -10,48 +10,14 @@
     />
   </div>
   <div class="container_box">
-    <div class="banner_1">
-      <img src="@/assets/banner1.jpg" alt="" />
-    </div>
-    <div class="banner_2">
-      <div class="left_box">
-        <van-icon name="fire-o" color="#ee0a24" size="30" />
-        <div class="text">
-          <div class="text_1">视唱练耳课上新啦</div>
-          <div class="text_2">一边看课程一边练习 快速提升</div>
-        </div>
-      </div>
-      <div class="right_box">
-        <van-button
-          round
-          size="small"
-          style="background-color: #8fabef; color: #fff"
-          @click="song"
-          >学习一下</van-button
-        >
-      </div>
-    </div>
-    <div class="banner_3">
-      <div class="learn_item" v-for="item in learnList">
-        <div class="icon_box" :style="{ 'background-color': item.color }">
-          <van-icon :name="item.icon" size="30" />
-        </div>
-        <div>
-          {{ item.label }}
-        </div>
-      </div>
-    </div>
-    <div class="banner_4">
-      <div class="round_1">
-        <h1>随机练习</h1>
-        <div>各种音律知识</div>
-      </div>
-      <div class="round_2">
-        <h1>专项练习</h1>
-        <div>针对性跳战</div>
-      </div>
-    </div>
+    <img src="@/assets/wuxianpu.jpg" alt="" />
   </div>
+  <div class="but">
+    <button class="record-btn">
+      <span class="record-btn__icon"></span>
+    </button>
+  </div>
+
   <div class="footer">
     <van-tabbar v-model="active">
       <van-tabbar-item icon="service-o">练耳</van-tabbar-item>
@@ -97,21 +63,22 @@ const icon = {
 
 const onClickLeft = () => {
   console.log("返回");
+  router.push("/song");
 };
 const onClickRight = () => {
   console.log("分享");
-};
-const song = () => {
-  router.push("/song");
 };
 </script>
 
 <style scoped lang="scss">
 .container_box {
-  .banner_1 {
-    img {
-      width: 100%;
-    }
+  display: block;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  img {
+    max-width: 100%;
   }
   .banner_2 {
     display: flex;
@@ -182,5 +149,44 @@ const song = () => {
       background-color: #aec5f9;
     }
   }
+}
+.but {
+  text-align: center;
+  margin-top: 30px;
+}
+.record-btn {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 auto;
+  border: none;
+  background-color: #ff4d4f;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.record-btn:hover {
+  background-color: #ff7875;
+}
+
+.record-btn:active {
+  background-color: #ff4d4f;
+}
+
+.record-btn__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border-radius: 50%;
 }
 </style>

@@ -4,7 +4,9 @@ import HomePage from "@/views/HomePage/index.vue";
 </script>
 
 <template>
-    <HomePage />
+  <div>
+    <router-view />
+  </div>
 </template>
 
 <style scoped></style>
